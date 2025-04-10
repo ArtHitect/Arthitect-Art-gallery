@@ -1,36 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Redirect</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .redirect-button {
-            padding: 15px 30px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .redirect-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The One</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(120deg, #0f0f0f, #1a1a1a);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://wallpapercave.com/wp/wp9115919.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -4;
+      filter: brightness(0.3);
+    }
+
+    body::after {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      animation: rotateBackground 60s linear infinite;
+      z-index: -3;
+    }
+
+    @keyframes rotateBackground {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .particles, .sparks, .sunflares {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .particle, .spark {
+      position: absolute;
+      border-radius: 50%;
+      width: 4px;
+      height: 4px;
+    }
+
+    .particle {
+      background: rgba(255, 255, 255, 0.3);
+      animation: floatUp 10s linear infinite;
+    }
+
+    .spark {
+      background: rgba(255, 100, 0, 0.8);
+      box-shadow: 0 0 10px rgba(255, 100, 0, 0.8);
+      animation: sparkFly 3s linear infinite;
+    }
+
+    .sunflare {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,215,0,0.5) 0%, transparent 80%);
+      border-radius: 50%;
+      z-index: -1;
+      animation: pulseFlare 5s ease-in-out infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    @keyframes sparkFly {
+      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+      30% { opacity: 1; }
+      100% { transform: translateY(-10vh) translateX(20vw); opacity: 0; }
+    }
+
+    @keyframes pulseFlare {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 20px #f8d34a, 0 0 40px #f39c12;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #f8d34a, 0 0 20px #f39c12; }
+      to { text-shadow: 0 0 30px #ffd700, 0 0 60px #ff8c00; }
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #ddd;
+      margin-bottom: 30px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 15px 40px;
+      background: linear-gradient(45deg, #ff6f00, #ffa000);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ffb300;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, #ffa000, #ff6f00);
+      box-shadow: 0 0 30px #ffd54f;
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-    <button class="redirect-button" onclick="window.location.href='https://example.com';">
-        GOT YOU HAHAH!
-    </button>
+  <div class="particles"></div>
+  <div class="sparks"></div>
+  <div class="sunflares">
+    <div class="sunflare"></div>
+  </div>
+  <h1>The One Who Stands Above All Races</h1>
+  <p>He doesn't fear the sun. He is the sun.</p>
+  <button onclick="window.location.href='https://worstgen.alwaysdata.net/forum/threads/escanor-vs-acqua-of-the-back.40326/';">
+    Witness His Power
+  </button>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_b0bfb74708.mp3?filename=epic-cinematic-action-trailer-112005.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    const particlesContainer = document.querySelector('.particles');
+    const sparksContainer = document.querySelector('.sparks');
+
+    for (let i = 0; i < 50; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.animationDuration = (5 + Math.random() * 5) + 's';
+      particle.style.animationDelay = Math.random() * 10 + 's';
+      particlesContainer.appendChild(particle);
+    }
+
+    for (let i = 0; i < 30; i++) {
+      const spark = document.createElement('div');
+      spark.classList.add('spark');
+      spark.style.left = Math.random() * 100 + 'vw';
+      spark.style.animationDuration = (2 + Math.random() * 2) + 's';
+      spark.style.animationDelay = Math.random() * 5 + 's';
+      sparksContainer.appendChild(spark);
+    }
+  </script>
 </body>
 </html>
